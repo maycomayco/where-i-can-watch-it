@@ -7,16 +7,18 @@ const csvFilePath = path.resolve(__dirname, "WATCHLIST.csv");
 const csvData = fs.readFileSync(csvFilePath, "utf8");
 
 // Parse CSV data
-const parsedData = Papa.parse(csvData, { header: true });
+const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true });
 
 // Filter out the columns you need (Const, Title, and URL)
-const filteredData = parsedData.data.map(
-  (row: { Const: string; Title: string; URL: string }) => ({
+const filteredData = parsedData.data.map((row) => {
+  const currentMovie = {
     id: row.Const,
     title: row.Title,
     url: row.URL,
-  })
-);
+  };
+
+  return currentMovie;
+});
 
 // Convert the movies list to JSON format
 const moviesJson = JSON.stringify(filteredData, null, 2);
