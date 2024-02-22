@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:movies": "node ./src/scripts/generateMovies.ts"
+    "movies:generate": "node ./src/scripts/generateMovies.js"
   },
   "dependencies": {
-    "next": "14.1.0",
+    "next": "^14.1.0",
     "react": "^18",
     "react-dom": "^18"
   },
