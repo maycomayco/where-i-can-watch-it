@@ -10,14 +10,17 @@ async function Providers({ movieId }: { movieId: string }) {
   )
 }
 
+// TODO: remove <li> and change by <p> and apply some styles
 export default async function Home() {
   return (
     <main className="max-w-prose mx-auto">
-      <h1 className="mb-8 text-xl font-bold">IMDB Watchlist with streaming providers!!!</h1>
+      <header>
+        <h1 className="mb-6 text-3xl font-bold text-center">Where can I watch it?</h1>
+      </header>
       <section>
         <ul>
           {movies.map((movie, idx) => (
-            <li key={idx} className="text-lg">{idx + 1} - {movie.title} - <Providers movieId={movie.id} /></li>
+            <li key={idx} className="text-lg leading-relaxed">{idx + 1} - {movie.title} - <Providers movieId={movie.id} /></li>
           ))}
         </ul>
       </section>
